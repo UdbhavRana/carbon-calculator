@@ -298,7 +298,7 @@
             0
         )).toFixed(2);
         const outings = outingEmissions.toFixed(2);
-        const totalCarbon = (s.toFixed(2) + outingEmissions.toFixed(2) + (c95 + (
+        const totalCarbon = (s + outingEmissions + (c95 + (
             dietType === "Vegan" ? vegan :
             dietType === "Vegetarian" ? vegetarian :
             dietType === "Pescatarian" ? pescatarian :
@@ -306,7 +306,7 @@
             dietType === "White Meat Diet" ? whiteMeatDiet :
             dietType === "Red Meat Diet" ? redMeatDiet :
             0
-        )).toFixed(2)); // Adjust total carbon with outing emissions
+        ))).toFixed(2); // Adjust total carbon with outing emissions
         const water = waterusage.toFixed(2);
         const waste = wasteg.toFixed(2);
 
