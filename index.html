@@ -256,6 +256,8 @@
         const outingEmissions = ((PARAMS.outingEmissionFactors[inputs.outingType] * inputs.outingsMonth) + (PARAMS.mealEmissionFactors[inputs.dietType] * inputs.eatOutMonth)) / 365  +  1.4;
         const waterusage =  (35 + ( 0.7 * [inputs.bathDuration] * 42 * [inputs.showers]) + 1500 ) / 7 ;
         const wasteg =   ((0.25 * [inputs.foodOrders]) + ([inputs.ecommerce] * 0.55));
+        const elec =   ((0.25 * [inputs.hostelNo]) + ([inputs.credits] * 0.1) + ([inputs.timeLabs] * 0.23) + ([inputs.timeLibrary] * 0.37) + ([inputs.timeGymkhana] * 0.16) );
+        const s = ((0.82 * elec) + 0.3);
         // Constants
         const c95 = 0.3342465753;
         const vegan = 158.942;
@@ -269,8 +271,8 @@
         const dietType = inputs.dietType; // Use the actual input value for diet type
 
         // Calculations
-        const electricity = 3.30.toFixed(2);
-        const scope2 = 4.04.toFixed(2);
+        const electricity = elec.toFixed(2);
+        const scope2 = s.toFixed(2);
         const scope3 = (c95 + (
             dietType === "Vegan" ? vegan :
             dietType === "Vegetarian" ? vegetarian :
