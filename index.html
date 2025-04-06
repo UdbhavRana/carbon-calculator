@@ -5,6 +5,39 @@
     <title>GESH x Sustainability Cell | Carbon Footprint Calculator</title>
      <style>
         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 600px;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .content {
+                flex: 1;
+                margin: 10px;
+            }
+        }
+        {
             background-color: #e8f5e9; /* Light green background */
             font-family: Arial, sans-serif;
         }
