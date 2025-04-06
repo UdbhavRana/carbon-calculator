@@ -251,21 +251,7 @@
             bathDuration: parseInt(document.getElementById('bathDuration').value),
             ecommerce: parseInt(document.getElementById('ecommerce').value)
         };
-   function calculateWaterUsage(bathDuration, showers, dietType) {
-       const mealTypeWaterUsage = {
-            'Vegan': 1000,
-            'Vegetarian': 1500,
-            'Pescatarian': 2000,
-            'Egetarian': 1800, // Note: "Egetarian" might be a typo, consider verifying this term
-            'White Meat Diet': 2000,
-            'Red Meat Diet': 2500
-        };
 
-        const mealWaterUsage = mealTypeWaterUsage[dietType] || 0;
-        const waterUsage = (35 + (0.7 * bathDuration * 7 * 6 * showers) + (mealWaterUsage * 7)) / 7;
-    
-        return waterUsage;
-        }
         // Calculate outing emissions
         const outingEmissions = ((PARAMS.outingEmissionFactors[inputs.outingType] * inputs.outingsMonth) + (PARAMS.mealEmissionFactors[inputs.dietType] * inputs.eatOutMonth)) / 365  +  1.4;
 
@@ -295,7 +281,7 @@
         )).toFixed(2);
         const outings = outingEmissions.toFixed(2);
         const totalCarbon = (636.83 + outingEmissions).toFixed(2); // Adjust total carbon with outing emissions
-        const water = waterUsage.toFixed(2);
+        const water = 229.86.toFixed(2);
         const waste = 3.10.toFixed(2);
 
         // Display Results
