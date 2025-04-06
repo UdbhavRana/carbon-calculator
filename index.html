@@ -257,14 +257,34 @@
             ecommerce: parseInt(document.getElementById('ecommerce').value)
         };
 
-        // Calculations
-        const electricity = 3.30.toFixed(2);
-        const scope2 = 4.04.toFixed(2);
-        const scope3 = 159.28.toFixed(2);
-        const outings = 2.84.toFixed(2);
-        const totalCarbon = 636.83.toFixed(2);
-        const water = 229.86.toFixed(2);
-        const waste = 3.10.toFixed(2);
+        // Constants
+const c95 = 0.3342465753;
+const vegan = 158.942;
+const vegetarian = 112.862;
+const pescatarian = 470.637;
+const egetarian = 158.812;
+const whiteMeatDiet = 486.237;
+const redMeatDiet = 494.167;
+
+// Variable for diet type
+const dietType = "Vegetarian"; // Example diet type, replace this with the actual variable
+
+// Calculations
+const electricity = 3.30.toFixed(2);
+const scope2 = 4.04.toFixed(2);
+const scope3 = (c95 + (
+  dietType === "Vegan" ? vegan :
+  dietType === "Vegetarian" ? vegetarian :
+  dietType === "Pescatarian" ? pescatarian :
+  dietType === "Egetarian" ? egetarian :
+  dietType === "White Meat Diet" ? whiteMeatDiet :
+  dietType === "Red Meat Diet" ? redMeatDiet :
+  0
+)).toFixed(2);
+const outings = 2.84.toFixed(2);
+const totalCarbon = 636.83.toFixed(2);
+const water = 229.86.toFixed(2);
+const waste = 3.10.toFixed(2);
 
         // Display Results
         const html = `
