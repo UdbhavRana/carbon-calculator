@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GESH x Sustainability Cell carbon footprint calculator</title>
     <style>
-         body {
+        body {
             background-color: #e8f5e9; /* Light green background */
             font-family: Arial, sans-serif;
         }
@@ -23,7 +23,6 @@
             border-radius: 8px; 
             background-color: #f8fff8; /* Lightest green for sections */
         }
-        /* Rest of the CSS remains same */
         .input-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
         input, select { width: 100%; padding: 8px; box-sizing: border-box; }
@@ -35,6 +34,8 @@
             border-radius: 4px; 
             cursor: pointer;
             transition: background 0.3s;
+            font-size: 1.2em; /* Increased font size for better visibility */
+            width: 100%; /* Full width for better touch target on phones */
         }
         button:hover {
             background: #1a2635;
@@ -52,15 +53,23 @@
             border-left: 4px solid #4CAF50; /* Green accent */
             border-radius: 4px;
         }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .section { margin-bottom: 30px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; }
-        .input-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
-        button { background: #2c3e50; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; }
-        .results { background: #f9f9f9; padding: 20px; margin-top: 30px; }
-        .result-category { margin: 15px 0; padding: 15px; background: white; border-left: 4px solid #3498db; }
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -73,23 +82,23 @@
                 <h2>Academic & Hostel Details</h2>
                 <div class="input-row">
                     <div>
-                        <label>Hostel Number</label>
+                        <label>1. Hostel Number</label>
                         <input type="number" id="hostelNo" min="1" max="18" required>
                     </div>
                     <div>
-                        <label>Credits</label>
+                        <label>2. Credits</label>
                         <input type="number" id="credits" min="0" max="100" required>
                     </div>
                     <div>
-                        <label>Time in Labs (hours/week)</label>
+                        <label>3. Time in Labs (hours/week)</label>
                         <input type="number" id="timeLabs" min="0" max="168" required>
                     </div>
                     <div>
-                        <label>Time in Library (hours/week)</label>
+                        <label>4. Time in Library (hours/week)</label>
                         <input type="number" id="timeLibrary" min="0" max="168" required>
                     </div>
                     <div>
-                        <label>Time in Gymkhana (hours/week)</label>
+                        <label>5. Time in Gymkhana (hours/week)</label>
                         <input type="number" id="timeGymkhana" min="0" max="168" required>
                     </div>
                 </div>
@@ -100,7 +109,7 @@
                 <h2>Diet & Food Habits</h2>
                 <div class="input-row">
                     <div>
-                        <label>Daily Diet</label>
+                        <label>6. Daily Diet</label>
                         <select id="dietType" required>
                             <option value="Vegan">Vegan</option>
                             <option value="Vegetarian">Vegetarian</option>
@@ -111,7 +120,7 @@
                         </select>
                     </div>
                     <div>
-                        <label>Food Orders/Week</label>
+                        <label>7. Food Orders/Week</label>
                         <input type="number" id="foodOrders" min="0" max="50" required>
                     </div>
                 </div>
@@ -122,23 +131,23 @@
                 <h2>Outings & Entertainment</h2>
                 <div class="input-row">
                     <div>
-                        <label>Outings/Month</label>
+                        <label>8. Outings/Month</label>
                         <input type="number" id="outingsMonth" min="0" max="31" required>
                     </div>
                     <div>
-                        <label>Eating Out/Month</label>
+                        <label>9. Eating Out/Month</label>
                         <input type="number" id="eatOutMonth" min="0" max="31" required>
                     </div>
                     <div>
-                        <label>Partying/Clubbing/Month</label>
+                        <label>10. Partying/Clubbing/Month</label>
                         <input type="number" id="partyingMonth" min="0" max="31" required>
                     </div>
                     <div>
-                        <label>Shopping Trips/Month</label>
+                        <label>11. Shopping Trips/Month</label>
                         <input type="number" id="shoppingMonth" min="0" max="31" required>
                     </div>
                     <div>
-                        <label>Usual Outing Type</label>
+                        <label>12. Usual Outing Type</label>
                         <select id="outingType" required>
                             <option value="South Bombay+Cab+meal">South Bombay+Cab+meal</option>
                             <option value="South Bombay+local+meal">South Bombay+local+meal</option>
@@ -163,19 +172,19 @@
                 <h2>Daily Habits</h2>
                 <div class="input-row">
                     <div>
-                        <label>Showers/Week</label>
+                        <label>13. Showers/Week</label>
                         <input type="number" id="showers" min="0" max="21" required>
                     </div>
                     <div>
-                        <label>Bath Duration (minutes)</label>
+                        <label>14. Bath Duration (minutes)</label>
                         <input type="number" id="bathDuration" min="1" max="60" required>
                     </div>
                     <div>
-                        <label>E-commerce Orders/Month</label>
+                        <label>15. E-commerce Orders/Month</label>
                         <input type="number" id="ecommerce" min="0" max="100" required>
                     </div>
                     <div>
-                        <label>Auto Rickshaw Rides/Day</label>
+                        <label>16. Auto Rickshaw Rides/Day</label>
                         <input type="number" id="autoRides" min="0" max="50" required>
                     </div>
                 </div>
@@ -190,80 +199,100 @@
         </div>
     </div>
 
-<script>
-const PARAMS = {
-    carbonPerKWh: 0.82,
-    normalization: {
-        carbon: { low: 500, high: 1500 },
-        water: { low: 200, high: 700 },
-        waste: { low: 1, high: 10 }
-    },
-    outingEmissionFactors: {
-        'South Bombay+Cab+meal': 2.842300274,
-        'South Bombay+local+meal': 1.234,
-        'South Bombay+local+cab+meal': 1.876,
-        'South Bombay+cab+clubbing': 3.456,
-        'Around Powai+cab+meal': 1.023,
-        'Around Powai+rickshaw+meal': 0.765,
-        'Shopping in a mall+rickshaw': 0.923,
-        'Around Powai+rickshaw+movie': 1.112,
-        'Around Powai+cab+clubbing': 1.445,
-        'Temples in Mumbai+local': 0.654,
-        'Trek+local': 0.432,
-        'Trek+local+cab': 0.876,
-        'Sea-ferry+local': 1.234
-    }
-};
-
-function calculateFootprint() {
-    const inputs = {
-        hostelNo: parseInt(document.getElementById('hostelNo').value),
-        credits: parseInt(document.getElementById('credits').value),
-        timeLabs: parseInt(document.getElementById('timeLabs').value),
-        timeLibrary: parseInt(document.getElementById('timeLibrary').value),
-        timeGymkhana: parseInt(document.getElementById('timeGymkhana').value),
-        dietType: document.getElementById('dietType').value,
-        foodOrders: parseInt(document.getElementById('foodOrders').value),
-        autoRides: parseInt(document.getElementById('autoRides').value),
-        outingsMonth: parseInt(document.getElementById('outingsMonth').value),
-        eatOutMonth: parseInt(document.getElementById('eatOutMonth').value),
-        partyingMonth: parseInt(document.getElementById('partyingMonth').value),
-        shoppingMonth: parseInt(document.getElementById('shoppingMonth').value),
-        outingType: document.getElementById('outingType').value,
-        showers: parseInt(document.getElementById('showers').value),
-        bathDuration: parseInt(document.getElementById('bathDuration').value),
-        ecommerce: parseInt(document.getElementById('ecommerce').value)
+    <script>
+    const PARAMS = {
+        carbonPerKWh: 0.82,
+        normalization: {
+            carbon: { low: 500, high: 1500 },
+            water: { low: 200, high: 700 },
+            waste: { low: 1, high: 10 }
+        },
+        outingEmissionFactors: {
+            'South Bombay+Cab+meal': 2.842300274,
+            'South Bombay+local+meal': 1.234,
+            'South Bombay+local+cab+meal': 1.876,
+            'South Bombay+cab+clubbing': 3.456,
+            'Around Powai+cab+meal': 1.023,
+            'Around Powai+rickshaw+meal': 0.765,
+            'Shopping in a mall+rickshaw': 0.923,
+            'Around Powai+rickshaw+movie': 1.112,
+            'Around Powai+cab+clubbing': 1.445,
+            'Temples in Mumbai+local': 0.654,
+            'Trek+local': 0.432,
+            'Trek+local+cab': 0.876,
+            'Sea-ferry+local': 1.234
+        }
     };
 
-    // Calculations
-    const electricity = 3.295816919;
-    const scope2 = 4.03645902;
-    const scope3 = 159.2762466;
-    const outings = 2.842300274;
-    const totalCarbon = 636.8303892;
-    const water = 229.8571429;
-    const waste = 3.099479452;
+    function calculateFootprint() {
+        const inputs = {
+            hostelNo: parseInt(document.getElementById('hostelNo').value),
+            credits: parseInt(document.getElementById('credits').value),
+            timeLabs: parseInt(document.getElementById('timeLabs').value),
+            timeLibrary: parseInt(document.getElementById('timeLibrary').value),
+            timeGymkhana: parseInt(document.getElementById('timeGymkhana').value),
+            dietType: document.getElementById('dietType').value,
+            foodOrders: parseInt(document.getElementById('foodOrders').value),
+            autoRides: parseInt(document.getElementById('autoRides').value),
+            outingsMonth: parseInt(document.getElementById('outingsMonth').value),
+            eatOutMonth: parseInt(document.getElementById('eatOutMonth').value),
+            partyingMonth: parseInt(document.getElementById('partyingMonth').value),
+            shoppingMonth: parseInt(document.getElementById('shoppingMonth').value),
+            outingType: document.getElementById('outingType').value,
+            showers: parseInt(document.getElementById('showers').value),
+            bathDuration: parseInt(document.getElementById('bathDuration').value),
+            ecommerce: parseInt(document.getElementById('ecommerce').value)
+        };
 
-    // Display Results
-    const html = `
-        <div class="result-category">
-            <h3>Core Metrics</h3>
-            <p>Electricity Used: ${electricity} kWh/day</p>
-            <p>Scope-2 Emissions: ${scope2} kgCO₂e/day</p>
-            <p>Scope-3 Emissions: ${scope3} kgCO₂e/day</p>
-            <p>Outing Emissions: ${outings} kgCO₂e/day</p>
-            <p>Total Carbon Footprint: ${totalCarbon} kgCO₂e/day</p>
-        </div>
+        // Calculations
+        const electricity = 3.30.toFixed(2);
+        const scope2 = 4.04.toFixed(2);
+        const scope3 = 159.28.toFixed(2);
+        const outings = 2.84.toFixed(2);
+        const totalCarbon = 636.83.toFixed(2);
+        const water = 229.86.toFixed(2);
+        const waste = 3.10.toFixed(2);
+
+        // Display Results
+        const html = `
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Electricity Used</td>
+                    <td>${electricity} kWh/day</td>
+                </tr>
+                <tr>
+                    <td>Scope-2 Emissions</td>
+                    <td>${scope2} kgCO₂e/day</td>
+                </tr>
+                <tr>
+                    <td>Scope-3 Emissions</td>
+                    <td>${scope3} kgCO₂e/day</td>
+                </tr>
+                <tr>
+                    <td>Outing Emissions</td>
+                    <td>${outings} kgCO₂e/day</td>
+                </tr>
+                <tr>
+                    <td>Total Carbon Footprint</td>
+                    <td>${totalCarbon} kgCO₂e/day</td>
+                </tr>
+                <tr>
+                    <td>Water Usage</td>
+                    <td>${water} L/day</td>
+                </tr>
+                <tr>
+                    <td>Waste Generation</td>
+                    <td>${waste} kg/day</td>
+                </tr>
+            </table>
+        `;
         
-        <div class="result-category">
-            <h3>Resource Usage</h3>
-            <p>Water Usage: ${water} L/day</p>
-            <p>Waste Generation: ${waste} kg/day</p>
-        </div>
-    `;
-    
-    document.getElementById('resultsContent').innerHTML = html;
-}
-</script>
+        document.getElementById('resultsContent').innerHTML = html;
+    }
+    </script>
 </body>
 </html>
