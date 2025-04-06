@@ -255,7 +255,7 @@
         // Calculate outing emissions
         const outingEmissions = ((PARAMS.outingEmissionFactors[inputs.outingType] * inputs.outingsMonth) + (PARAMS.mealEmissionFactors[inputs.dietType] * inputs.eatOutMonth)) / 365  +  1.4;
         const waterusage =  (35 + ( 0.7 * [inputs.bathDuration] * 42 * [inputs.showers]) + 1500 ) / 7 ;
-        const waste =   (( 0.25 * [inputs.foodOrders] )+( [inputs.ecommerce] * 0.55) );
+        const wasteg =   ((0.25 * [inputs.foodOrders]) + ([inputs.ecommerce] * 0.55));
         // Constants
         const c95 = 0.3342465753;
         const vegan = 158.942;
@@ -283,7 +283,7 @@
         const outings = outingEmissions.toFixed(2);
         const totalCarbon = (636.83 + outingEmissions).toFixed(2); // Adjust total carbon with outing emissions
         const water = waterusage.toFixed(2);
-        const waste = waste.toFixed(2);
+        const waste = wasteg.toFixed(2);
 
         // Display Results
         const html = `
